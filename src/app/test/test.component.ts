@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: '[app-test]',
   template: `<h1>
-  HAI
-  </h1>`,
+  HAI  
+  </h1>
+  <app-binding></app-binding>`,
   styles: [`h1{
     color:red
   }`]
