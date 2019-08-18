@@ -5,9 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `<h3>
   Welcome {{name}}
   </h3>
- <button (click)=gettext()>Click</button>
- <button (click)=getevent($event)>event</button>
- <button (click)="greeting='welcome Bharghav'">Greet</button>
+  <input #myInput type="text" >
+ <button (click)=gettext(myInput.value)>Click</button>
  {{greeting}}
   `,
   styles: []
@@ -19,11 +18,9 @@ public greeting;
 
   ngOnInit() {
   }
-  gettext(){
-return this.greeting=this.name;
+  gettext(value){
+return this.greeting=value;
   }
-  getevent(event){
-    return this.greeting=event.type;
-  }
+ 
  
 }
