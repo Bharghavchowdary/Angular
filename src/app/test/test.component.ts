@@ -5,20 +5,14 @@ import { Component, OnInit } from '@angular/core';
   template: `<h3>
   Welcome {{name}}
   </h3>
-  <input type="text" [(ngModel)]="name" >
-  <h2 *ngIf="name; else elseBlock ">Structural Directive</h2>  
-  <ng-template #elseBlock>
-  <h2>{{name}} Hidden</h2>
-  </ng-template>
+  <input type="text" [(ngModel)]="color" >
  
-  <div *ngIf="name; then thenblock; else elseblock"></div>
-  <ng-template #thenblock>
-  <h2>Name Not Hidden</h2>
-  </ng-template>
-
-  <ng-template #elseblock>
-  <h2>Name Hidden</h2>
-  </ng-template>
+  <div [ngSwitch]="color">
+<div *ngSwitchCase="'red'">You picked Red</div>
+<div *ngSwitchCase="'blue'">You picked Blue</div>
+<div *ngSwitchCase="'green'">You picked Green</div>
+<div *ngSwitchDefault>Pick Again</div>
+  </div>
   `,
   styles: []
 })
