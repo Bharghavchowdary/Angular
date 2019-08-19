@@ -1,43 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   template: `<h3>
   Welcome {{name}}
-  </h3>
-  <input type="text" [(ngModel)]="color" >
- 
-  <div *ngFor="let color of colors; index as i">
-<h2>{{i}} {{color}}</h2>
-  </div>
-
-  <div *ngFor="let color of colors; first as f">
-  <h2>{{f}} {{color}}</h2>
-    </div>
-
-    <div *ngFor="let color of colors; last as l">
-  <h2>{{l}} {{color}}</h2>
-    </div>
-
-    <div *ngFor="let color of colors; odd as o">
-    <h2>{{o}} {{color}}</h2>
-      </div>
-
-      <div *ngFor="let color of colors; even as e">
-      <h2>{{e}} {{color}}</h2>
-        </div>
+  </h3>  
+  <button (click)="fireEvent($event)">Send Event</button>
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
  
-
-  public colors=["Red","Green","Blue","Orange"];
+//From parent to child
+  //@Input() public parentData;
+  @Input('parentData') public name;
+//From Child to Parent
+ @Output() public childEvent=new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
  
- 
+  fireEvent(event){
+this.childEvent.emit('HEY From Child '+event.type);
+  }
  
 }
