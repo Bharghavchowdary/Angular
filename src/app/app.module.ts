@@ -5,12 +5,16 @@ import {FormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { BindingComponent } from './binding/binding.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    BindingComponent
+    BindingComponent,
+    EmployeeDetailComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
